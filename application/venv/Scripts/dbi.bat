@@ -1,0 +1,2 @@
+call activate.bat & call python.exe  C:/Users/Kirill/Desktop/Yana/app/application/vuz_app/manage.py dumpdata --exclude auth.permission --exclude contenttypes > C:/Users/Kirill/Desktop/Yana/app/application/vuz_app/db.json & call deactivate.bat
+exit

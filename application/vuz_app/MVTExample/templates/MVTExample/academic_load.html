@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Академическая нагрузка</title>
+</head>
+<body>
+<a href="/">Вернуться</a> на главную
+<form action="/academic_load/" method="get">
+    <label for="teacher_name">Имя преподавателя </label>
+    <select id="teacher_name" name="teacher_name">
+        <option></option>
+        {% for teacher in teachers %}
+            <option>{{ teacher.first_name }} {{ teacher.last_name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Поиск">
+</form>
+<h2>Академическая нагрузка:</h2>
+<table border>
+    <tr>
+        <th>ФИО</th>
+        <th>Дисциплина</th>
+        <th>Академический год</th>
+        <th>Семестр</th>
+        <th>Группы</th>
+        <th>Количество студентов</th>
+        <th>Количество часов</th>
+        <th>Вид итогового контроля</th>
+    </tr>
+    {% for a in academic %}
+        <tr>
+            <td>{{a.teacher.first_name}} {{a.teacher.last_name}} {{f.teacher.patronymic}}</td>
+            <td>{{a.discipline.name}}</td>
+            <td>{{a.academic_year}}</td>
+            <td>{{a.term}}</td>
+            <td>{{a.groups}}</td>
+            <td>{{a.students_count}}</td>
+            <td>{{a.discipline.hours}}</td>
+            <td>{{a.exams_type}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
